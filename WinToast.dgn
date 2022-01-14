@@ -1,0 +1,47 @@
+select "Lib"
+
+mNative = null
+class WinToast{
+
+	func WinToast()
+	{
+		native = nativeLib("E:/98/WinToast/Toast") 
+		mNative = native
+	}
+	
+	func isCompatible()
+	{
+		funcs = mNative.getFunction("WinToastCompitable") 
+		funcs.invoke() 
+	}
+	
+	func setAppName(name)
+	{
+		funcs = mNative.getFunction("WinToastSetAppName") 
+		funcs.invoke(name) 
+	}
+	
+	func Initialize()
+	{
+		
+		funcs = mNative.getFunction("WinToastInitialize") 
+		funcs.invoke() 
+	}
+	
+	func setData(image,attribute,text)
+	{
+		funcs = mNative.getFunction("WinToastsetData") 
+		funcs.invoke(image,attribute,text)
+	}
+	
+	func showToast()
+	{
+		funcs = mNative.getFunction("WinToastshowToast") 
+		funcs.invoke() 
+		
+	}
+
+}
+
+
+
